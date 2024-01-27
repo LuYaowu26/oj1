@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main()
+{
+	int k=1;
+	int n, i,j;
+	long long int id;
+	int a[32] = { 0 };
+	long long int aim=0;
+	scanf("%d", &n);//第一行，学生总个数
+	for (i = 0; i < (3 * n - 1); i++)
+	{
+		scanf("%lld", &id);
+		for (j = 0; j < 32; j++)
+		{
+			if (id == 0)
+				a[j] = a[j] + 0;
+			else
+			{
+				a[j] = a[j]+ id % 2;
+				id = id / 2;
+			}
+		}
+	}
+	for (i = 0; i <32 ; i++)
+	{
+		a[i] = (a[i] % 3) / 2;
+		aim += a[i]*k;
+		k *= 2;
+	}
+	printf("%lld", aim);
+	return 0;
+}
